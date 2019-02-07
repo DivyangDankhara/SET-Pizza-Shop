@@ -1,0 +1,87 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    width:100%;
+    font-family: sans-serif;
+    color:#FFF;
+}
+
+
+.Wrapper{ 
+    height:100vh;
+    width:100%;
+    background: url("../3.jpg") no-repeat 50% 50%;
+    background-size: cover;
+}
+
+.header{
+    position: absolute;
+    width: 99vw;
+    height: 10vh;
+    position: absolute;
+    left: 0.5%;
+    background-color: orange;
+    color: white; 
+    text-align: center;  
+    opacity: 0.6;
+    box-shadow: 0 0 10px rgb(0, 0, 0); 
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.header_Text{
+    color: white;
+    font-size: 8vh;
+}
+
+.inputArea{
+    width:750px;
+    height:420px;
+    background:#000;
+    color:#fff;
+    top:50%;
+    left:50%;
+    position:absolute;
+    box-sizing:border-box;
+    transform:translate(-50%,-50%);
+    opacity:0.8;
+    box-shadow: 0 0 20px rgb(0, 0, 0);
+    padding:50px 240px; 
+    border-radius:5px;
+}
+
+.prompt-text{
+    /*Here we formate the css for the user prompt text*/
+    margin:0;
+    text-align:Center;
+    font-size:20px;
+}
+
+.userInput{
+    width:100%;
+    border:none;
+    border-bottom:1px solid #fff;
+    background:transparent;
+    outline:none;
+    height:40px;
+    color:#FFF;
+    font-size:16px;
+    margin-bottom: 20px;
+}
+
+.submit{
+    width:100%;
+    border:none;
+    outline:none;
+    height:40px;
+    background:#E8AC44;
+    color:#FFF;
+    font-size:18px;
+    border-radius:5px;
+    margin-bottom: 20px;
+}
+
+
+.inputError{
+    color: red;
+}

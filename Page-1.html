@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--
+*	 FILE          : Page-1.html
+*    PROJECT       : Final Exam WDD
+*	 PROGRAMMER    : Divyangbhai Dankhara
+*    STUDENET NO.  : 8061566
+*	 FIRST VERSION : 2018-12-14
+*	 Description   : This is the first page of the wdd final exam assignment
+-->
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/Page-1.css" />
+    <script type="text/javascript">
+
+        function getNameFromUser()
+        {
+            document.getElementById("inputError").innerHTML = "";
+            var tmpName = document.getElementById("getUserName").value;
+            var re = /\d/;              // REGEX TO CHECK THAT USER DO NOT ENTER ANY NUMBER IN THEIR NAME
+            var reSpeChar = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+
+            function hasWhiteSpace(s) 
+            {
+                return /\s/g.test(s);
+            }
+
+            if(tmpName == "")
+            {
+                // specify the error to the user that what is wrong they are doing while entering the his/her name.
+                document.getElementById("inputError").innerHTML = "Sorry, please Enter your full name. Full name can't be Empty";
+                document.getElementById("getUserName").value = "";
+                return false;                                  
+            }
+            else if (re.test(tmpName))
+            {
+                document.getElementById("inputError").innerHTML = "Sorry, please Enter your full name. Full name must not contain Integer";
+                document.getElementById("getUserName").value = "";
+                return false; 
+            }
+            else if (reSpeChar.test(tmpName))
+            {
+                document.getElementById("inputError").innerHTML = "Sorry, please Enter your full name. Full name must not contain any Special characters";
+                document.getElementById("getUserName").value = "";
+                return false; 
+            }
+            else
+            {    
+                
+                if(hasWhiteSpace(tmpName) == true)
+                {
+                    var array = tmpName.split(" ");
+                    document.getElementById("firstName").value = array[0];
+                    document.getElementById("lastName").value = array[1];                 
+                }
+                else
+                {
+                    document.getElementById("firstName").value = tmpName;
+                }
+                // here user entered correct name so we save that name to our globle variavle that we created                      
+                return true;
+            }
+        }
+    
+    </script>
+</head>
+<body>
+    <form method="POST" action="/Page-2.php" onsubmit="return getNameFromUser()">
+        <div class="Wrapper">
+            <div class="header">
+                <b class="header_Text">SET Pizza Shop</b>
+            </div>
+            <div class="inputArea">
+                <div class="prompt-text">Please enter your full name to user our Online Pizza Ordering Service</div>
+                <input class="userInput" id="getUserName" type="text" maxlength="25" placeholder="Enter Your Full Name" title="Please enter your full name here" />
+                <input class="submit" value="Submit"  type="submit"/>
+                <div id="inputError" class="inputError"></div>
+                <input id="firstName" type="hidden" name="firstName" />
+                <input id="lastName" type="hidden" name="lastName"/>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
